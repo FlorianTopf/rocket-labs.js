@@ -40,9 +40,11 @@ var sum2: (a: number, b: number) => number = function (x, y) { return x+y };
 sum2(1, 5); // will compile
 //sum2("Hello", "World"); // will fail to compile
 
+var suitsExample: string[] = ["hearts", "spades", "clubs", "diamonds"],
+
 // lambdas and closures
 var deck = {
-    suits: ["hearts", "spades", "clubs", "diamonds"],
+    suits: suitsExample,
     cards: Array(52),
     createCardPicker: function() {
         // lambda function => allows to access 'this' => parent scope of deck
@@ -59,7 +61,38 @@ var deck = {
     }
 }
 
-// call
+// calls
 var cardPicker = deck.createCardPicker();
 var pickedCard = cardPicker();
 alert("card: " + pickedCard.card + " of " + pickedCard.suit);
+
+// overloading
+// first declaration
+function pickCard(x: {suit: string; card: number; }[]): number;
+// second declaration
+function pickCard(x: number): {suit: string; card: number; };
+// implementation
+function pickCard(x): any {
+    // Check to see if we're working with an object/array
+    // if so, they gave us the deck and we'll pick the card
+    if (typeof x == "object") {
+        var pickedCard = Math.floor(Math.random() * x.length);
+        return pickedCard;
+    }
+    // Otherwise just let them pick the card
+    else if (typeof x == "number") {
+        var pickedSuit = Math.floor(x / 13);
+        return { suit: suits[pickedSuit], card: x % 13 };
+    }
+}
+
+// calls
+// this works
+var myDeck = [{ suit: "diamonds", card: 2 }, { suit: "spades", card: 10 }, { suit: "hearts", card: 4 }];
+var pickedCard1 = myDeck[pickCard(myDeck)];
+alert("card: " + pickedCard1.card + " of " + pickedCard1.suit);
+// this also works
+var pickedCard2 = pickCard(15);
+alert("card: " + pickedCard2.card + " of " + pickedCard2.suit);
+
+
