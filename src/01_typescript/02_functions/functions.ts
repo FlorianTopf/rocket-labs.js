@@ -23,7 +23,7 @@ var func: (a: number, b: number) => number;
 function add1(x: number, y: number): number {
 	return x + y
 }
-// function implementation (the same in js as obove)
+// function implementation (the same in js as above)
 function add2(x: number, y: number): number => { x + y };
 
 // assignment
