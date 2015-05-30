@@ -21,8 +21,8 @@ apt-get -y install \
 nodejs \
 phantomjs
 
-echo "=> Install node apps: yeoman, bower, grunt, typescript"
-npm install -g yo bower grunt-cli grunt typescript
+echo "=> Install node apps: yeoman, bower, grunt, typescript, tsd"
+npm install -g yo bower grunt-cli grunt typescript tsd
 
 echo "=> Install yeoman generators"
 npm install -g generator-angular generator-angular-fullstack
