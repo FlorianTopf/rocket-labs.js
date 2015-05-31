@@ -4,9 +4,9 @@ Rocket Labs - Javascript Workshops
 ## Installation ##
 
 * install node.js and npm
-* install node modules by running "npm install" from the project root directory
-* run "grunt" to start the Grunt task runner in the project root directory
+* install node modules by running "npm install" from the project's "src" directory
+* run "grunt" to start the Grunt task runner in the project's "src" directory
 
 ## Updating ##
 
-* To update node modules run "npm update"
+* To update node modules run "npm update" in the project's "src" directory

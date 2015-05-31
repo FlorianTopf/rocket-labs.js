@@ -71,8 +71,4 @@ myArray = ["Florian", "Sabrina"]
 var myWrongArray: StringArray
 //myWrongArray = [1, 2] // this will fail
 
-
-
-
-
 // class types will be shown in next chapter!

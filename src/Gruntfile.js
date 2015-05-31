@@ -7,7 +7,7 @@ module.exports = function(grunt) {
         },
         ts: {
             default: {
-                src: typeScriptPath + '**/*.ts',
+                src: typeScriptPath + '*/*.ts',
                 options: {
                     sourceMap: false
                 }
