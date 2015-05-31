@@ -33,6 +33,18 @@ class Shape  {
     public draw(): void {
         throw new Error('Abstract shape cannot be rendered.');
     }
+
+    public destroyInAWhile(seconds: number) {
+        window.setTimeout(
+            () => { this.destroy(); },
+            1000 * seconds
+        );
+    }
+
+    protected destroy(): void
+    {
+        throw new Error('Abstract shape cannot be destroyed.');
+    }
 }
 
 let shape = new Shape();
@@ -66,6 +78,11 @@ class Circle extends Shape
     public draw(): void {
         echo('-- drawing circle with radius ' + this.radius + ' --');
     }
+
+    protected destroy(): void
+    {
+        echo('-- destroying circle --');
+    }
 }
 
 let circle = new Circle(5);
@@ -95,3 +112,6 @@ echo(getPropertyNames(circle));
 // output: _id, radius
 echo(getPropertyNames(circle, false));
 // output: _id,radius,constructor,area,draw,id
+
+circle.destroyInAWhile(5);
+// output: -- destroying circle -- (after 5 seconds)

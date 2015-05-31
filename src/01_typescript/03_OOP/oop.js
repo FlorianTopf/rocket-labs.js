@@ -38,6 +38,13 @@ var Shape = (function () {
     Shape.prototype.draw = function () {
         throw new Error('Abstract shape cannot be rendered.');
     };
+    Shape.prototype.destroyInAWhile = function (seconds) {
+        var _this = this;
+        window.setTimeout(function () { _this.destroy(); }, 1000 * seconds);
+    };
+    Shape.prototype.destroy = function () {
+        throw new Error('Abstract shape cannot be destroyed.');
+    };
     Shape.idCounter = 1;
     return Shape;
 })();
@@ -62,6 +69,9 @@ var Circle = (function (_super) {
     Circle.prototype.draw = function () {
         echo('-- drawing circle with radius ' + this.radius + ' --');
     };
+    Circle.prototype.destroy = function () {
+        echo('-- destroying circle --');
+    };
     return Circle;
 })(Shape);
 var circle = new Circle(5);
@@ -74,3 +84,4 @@ echo(circle['area']);
 circle.draw();
 echo(getPropertyNames(circle));
 echo(getPropertyNames(circle, false));
+circle.destroyInAWhile(5);
