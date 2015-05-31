@@ -71,4 +71,16 @@ myArray = ["Florian", "Sabrina"]
 var myWrongArray: StringArray
 //myWrongArray = [1, 2] // this will fail
 
-// class types will be shown in next chapter!
+// class types can also be drawn as interfaces
+// declaration
+interface IEntity {
+	id: number,
+	info(): string
+}
+// usage
+class Dienstwagen implements IEntity {
+	public id: number;
+	public brand: string;
+	public type: 
+}
+
