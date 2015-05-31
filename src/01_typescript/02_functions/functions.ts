@@ -21,14 +21,16 @@ var func: (a: number, b: number) => number;
 
 // function implementation
 function add1(x: number, y: number): number {
-	return x + y
+	return x + y;
 }
+
 // function implementation (the same in js as above)
-function add2(x: number, y: number): number => { x + y };
+function add2(x: number, y: number): number { return x + y }
 
 // assignment
-func1 = add1;
-func2 = add2;
+let func1 = add1;
+let func2 = add2;
+
 // call
 var num: number = func1(17, 2);
 
@@ -40,7 +42,7 @@ var sum2: (a: number, b: number) => number = function (x, y) { return x+y };
 sum2(1, 5); // will compile
 //sum2("Hello", "World"); // will fail to compile
 
-var suitsExample: string[] = ["hearts", "spades", "clubs", "diamonds"],
+var suitsExample: string[] = ["hearts", "spades", "clubs", "diamonds"];
 
 // lambdas and closures
 var deck = {
@@ -59,11 +61,12 @@ var deck = {
             return {suit: this.suits[pickedSuit], card: pickedCard % 13};
         }
     }
-}
+};
 
 // calls
 var cardPicker = deck.createCardPicker();
 var pickedCard = cardPicker();
+var suits = suitsExample;
 alert("card: " + pickedCard.card + " of " + pickedCard.suit);
 
 // overloading
@@ -76,8 +79,7 @@ function pickCard(x): any {
     // Check to see if we're working with an object/array
     // if so, they gave us the deck and we'll pick the card
     if (typeof x == "object") {
-        var pickedCard = Math.floor(Math.random() * x.length);
-        return pickedCard;
+        return Math.floor(Math.random() * x.length);
     }
     // Otherwise just let them pick the card
     else if (typeof x == "number") {
