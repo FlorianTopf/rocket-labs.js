@@ -1,3 +1,18 @@
+function echo(message) {
+    document.write(String(message) + '<br />');
+}
+
+function getPropertyNames(object, onlyOwnProperties: boolean = true): string[] {
+    let names = [];
+    for (var property in object) {
+        if (!onlyOwnProperties || object.hasOwnProperty(property)) {
+            names.push(property);
+        }
+    }
+
+    return names;
+}
+
 class Shape  {
     static idCounter: number = 1;
 
@@ -20,6 +35,16 @@ class Shape  {
     }
 }
 
+let shape = new Shape();
+
+echo(shape.id);
+// output: "Object #1"
+// won't compile
+// echo (shape.area);
+
+//shape.draw();
+// output: Exception
+
 class Circle extends Shape
 {
     private radius: number;
@@ -39,33 +64,34 @@ class Circle extends Shape
     }
 
     public draw(): void {
-        // canvas magic
+        echo('-- drawing circle with radius ' + this.radius + ' --');
     }
 }
 
-let shape = new Shape();
-console.log(shape.id);
-// output: "Object #1"
-
-// won't compile
-// echo (shape.area);
-
 let circle = new Circle(5);
-console.log(circle.id);
+echo(circle.id);
 // output: Object #2
-console.log(circle.area);
+echo(circle.area);
 // output: 78.53981633974483
 
+// this has no effect
+//circle.id = 'test';
+//echo (circle.id);
+// output: Object #2
+
 circle.area = 78;
-console.log(circle.area);
+echo(circle.area);
 // output: 50.26548245743669
 
 circle['area'] = 79;
-console.log(circle['area']);
+echo(circle['area']);
 // output: 78.53981633974483
-
-shape.draw();
-// output: Exception
 
 circle.draw();
 // output: draws circle to canvas
+
+// show property names
+echo(getPropertyNames(circle));
+// output: _id, radius
+echo(getPropertyNames(circle, false));
+// output: _id,radius,constructor,area,draw,id

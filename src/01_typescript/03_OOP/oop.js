@@ -4,6 +4,19 @@ var __extends = this.__extends || function (d, b) {
     __.prototype = b.prototype;
     d.prototype = new __();
 };
+function echo(message) {
+    document.write(String(message) + '<br />');
+}
+function getPropertyNames(object, onlyOwnProperties) {
+    if (onlyOwnProperties === void 0) { onlyOwnProperties = true; }
+    var names = [];
+    for (var property in object) {
+        if (!onlyOwnProperties || object.hasOwnProperty(property)) {
+            names.push(property);
+        }
+    }
+    return names;
+}
 var Shape = (function () {
     function Shape() {
         this._id = Shape.idCounter++;
@@ -28,6 +41,8 @@ var Shape = (function () {
     Shape.idCounter = 1;
     return Shape;
 })();
+var shape = new Shape();
+echo(shape.id);
 var Circle = (function (_super) {
     __extends(Circle, _super);
     function Circle(radius) {
@@ -45,17 +60,17 @@ var Circle = (function (_super) {
         configurable: true
     });
     Circle.prototype.draw = function () {
+        echo('-- drawing circle with radius ' + this.radius + ' --');
     };
     return Circle;
 })(Shape);
-var shape = new Shape();
-console.log(shape.id);
 var circle = new Circle(5);
-console.log(circle.id);
-console.log(circle.area);
+echo(circle.id);
+echo(circle.area);
 circle.area = 78;
-console.log(circle.area);
+echo(circle.area);
 circle['area'] = 79;
-console.log(circle['area']);
-shape.draw();
+echo(circle['area']);
 circle.draw();
+echo(getPropertyNames(circle));
+echo(getPropertyNames(circle, false));
