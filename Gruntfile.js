@@ -9,8 +9,7 @@ module.exports = function(grunt) {
             default: {
                 src: typeScriptPath + '**/*.ts',
                 options: {
-                    sourceMap: false,
-                    failOnTypeErrors: false
+                    sourceMap: false
                 }
             }
         },
