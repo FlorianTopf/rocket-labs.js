@@ -78,9 +78,24 @@ interface IEntity {
 	info(): string
 }
 // usage
-class Dienstwagen implements IEntity {
+class CompanyCar implements IEntity {
 	public id: number;
 	public brand: string;
-	public type: 
+	public type: string;
+	public productionYear: number;
+
+	public constructor(id, brand, type, productionYear) {
+	    this.id = id;
+	    this.brand = brand;
+	    this.type = type;
+	    this.productionYear = productionYear;
+	}
+
+	public info() {
+		return this.brand + " " + this.type + ", " + this.productionYear;
+	}
 }
 
+var car: IEntity = new CompanyCar(1, "VW", "Passat", 2010);
+// automatically recognises properties
+console.log(car.info())

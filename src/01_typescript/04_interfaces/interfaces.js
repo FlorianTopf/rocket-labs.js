@@ -28,3 +28,17 @@ console.log(mySearch('Hello World', 'World'));
 var myArray;
 myArray = ["Florian", "Sabrina"];
 var myWrongArray;
+var CompanyCar = (function () {
+    function CompanyCar(id, brand, type, productionYear) {
+        this.id = id;
+        this.brand = brand;
+        this.type = type;
+        this.productionYear = productionYear;
+    }
+    CompanyCar.prototype.info = function () {
+        return this.brand + " " + this.type + ", " + this.productionYear;
+    };
+    return CompanyCar;
+})();
+var car = new CompanyCar(1, "VW", "Passat", 2010);
+console.log(car.info());
