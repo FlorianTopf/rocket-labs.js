@@ -1,5 +1,5 @@
 module.exports = function(grunt) {
-    var typeScriptPath = 'src/01_typescript/';
+    var typeScriptPath = '01_typescript/';
 
     grunt.initConfig({
         clean: {
@@ -7,7 +7,7 @@ module.exports = function(grunt) {
         },
         ts: {
             default: {
-                src: typeScriptPath + '**/*.ts',
+                src: typeScriptPath + '*/*.ts',
                 options: {
                     sourceMap: false
                 }
