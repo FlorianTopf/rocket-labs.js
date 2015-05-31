@@ -1,13 +1,10 @@
-// a function returning nothing with default value
 function sayHello(name) {
     if (name === void 0) { name = "Welt"; }
     alert("Hallo " + name);
 }
-// a function return string with optional value
 function sayHello1(name) {
     return "Hello " + name;
 }
-// rest parameters
 function buildName(firstName) {
     var restOfName = [];
     for (var _i = 1; _i < arguments.length; _i++) {
@@ -15,43 +12,46 @@ function buildName(firstName) {
     }
     return firstName + " " + restOfName.join(" ");
 }
-sayHello("Max"); // will compile
-//sayHello(5); // will fail to compile
-// function declaration
+sayHello("Max");
 var func;
-// function implementation
-function add(x, y) {
+function add1(x, y) {
     return x + y;
 }
-// assignment
-func = add;
-// call
-var num = func(17, 2);
-// anonymous function including parameter and return types
+function add2(x, y) { return x + y; }
+var func1 = add1;
+var func2 = add2;
+var num = func1(17, 2);
 var sum1 = function (x, y) { return x + y; };
-// anonymous function with function type => type inference for x and y
 var sum2 = function (x, y) { return x + y; };
-sum2(1, 5); // will compile
-//sum2("Hello", "World"); // will fail to compile
-// lambdas and closures
+sum2(1, 5);
+var suitsExample = ["hearts", "spades", "clubs", "diamonds"];
 var deck = {
-    suits: ["hearts", "spades", "clubs", "diamonds"],
+    suits: suitsExample,
     cards: Array(52),
     createCardPicker: function () {
         var _this = this;
-        // lambda function => allows to access 'this' => parent scope of deck
-        // as we see in the compilation it assigns the parent scope to a local variable
         return function () {
-            // this call wont work, since 'this' refers to local scope	
-            //return function {	
             var pickedCard = Math.floor(Math.random() * 52);
             var pickedSuit = Math.floor(pickedCard / 13);
-            // this works with lambdas
             return { suit: _this.suits[pickedSuit], card: pickedCard % 13 };
         };
     }
 };
-// call
 var cardPicker = deck.createCardPicker();
 var pickedCard = cardPicker();
+var suits = suitsExample;
 alert("card: " + pickedCard.card + " of " + pickedCard.suit);
+function pickCard(x) {
+    if (typeof x == "object") {
+        return Math.floor(Math.random() * x.length);
+    }
+    else if (typeof x == "number") {
+        var pickedSuit = Math.floor(x / 13);
+        return { suit: suits[pickedSuit], card: x % 13 };
+    }
+}
+var myDeck = [{ suit: "diamonds", card: 2 }, { suit: "spades", card: 10 }, { suit: "hearts", card: 4 }];
+var pickedCard1 = myDeck[pickCard(myDeck)];
+alert("card: " + pickedCard1.card + " of " + pickedCard1.suit);
+var pickedCard2 = pickCard(15);
+alert("card: " + pickedCard2.card + " of " + pickedCard2.suit);
