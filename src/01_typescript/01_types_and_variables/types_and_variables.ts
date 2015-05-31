@@ -21,7 +21,3 @@ var c: Color = Color.Green;
 
 name = "Max"; // this works
 //name = 0; // this won't compile
-
-
-
-
