@@ -10,3 +10,12 @@ Rocket Labs - Javascript Workshops
 ## Updating ##
 
 * To update node modules run "npm update" in the project's "src" directory
+
+## Resources ##
+
+### TypeScript ###
+
+* www.typescriptlang.org
+* https://github.com/Microsoft/TypeScript/wiki/ 
+* http://definitelytyped.org/ 
+* http://gruntjs.com
