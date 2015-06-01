@@ -10,8 +10,12 @@ unknownType = "i'm unknown";
 unknownType = 42;
 
 // array of numbers
-var list: number[] = [1, 2, 3];
-var list: Array<number> = [1, 2, 3];
+var list1: number[] = [1, 2, 3];
+var list2: Array<number> = [1, 2, 3];
+
+// type aliases are also here!
+type Numbers = number[];
+var list3: Numbers = [1, 2, 3];
 
 // tuples
 var tuple: [number, string] = [3, "three"];
@@ -21,3 +25,7 @@ var c: Color = Color.Green;
 
 name = "Max"; // this works
 // name = 0; // this won't compile
+
+// template string
+var greeting = `Hello, ${name}! Your name has ${name.length} characters`;
+console.log(greeting);
