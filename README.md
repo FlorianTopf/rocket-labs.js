@@ -11,6 +11,16 @@ Rocket Labs - Javascript Workshops
 
 * To update node modules run "npm update" in the project's "src" directory
 
+## Using the vagrant box ##
+
+* go into folder vm and run "vagrant up"
+* ssh to vm with "vagrant ssh deep-thought"
+* got to folder /var/www and run installation commands
+
+Please make sure you have installed following vgrant plugins:
+vagrant plugin install vagrant-hosts
+vagrant plugin install vagrant-hostsupdater
+
 ## Resources ##
 
 ### TypeScript ###
