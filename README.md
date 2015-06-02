@@ -18,8 +18,8 @@ Rocket Labs - Javascript Workshops
 * got to folder /var/www and run installation commands
 
 Please make sure you have installed following vgrant plugins:
-vagrant plugin install vagrant-hosts
-vagrant plugin install vagrant-hostsupdater
+* vagrant plugin install vagrant-hosts
+* vagrant plugin install vagrant-hostsupdater
 
 ## Resources ##
 
