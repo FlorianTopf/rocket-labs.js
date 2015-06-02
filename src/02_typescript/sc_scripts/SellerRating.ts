@@ -2,7 +2,7 @@
 var App = (function () {
 	var services = {
 		SellerRatingKpiSelection: {}
-	}
+	};
 
 	return { 
 		services: services
