@@ -1,4 +1,4 @@
-/// <reference path="../05_modules/jquery.d.ts" />
+/// <reference path="../05_modules/lib/jquery/jquery.d.ts" />
 
 module sc {
     export interface ControllerOptions {

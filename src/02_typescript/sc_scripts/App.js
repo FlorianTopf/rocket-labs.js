@@ -1,4 +1,4 @@
-/// <reference path="../05_modules/jquery.d.ts" />
+/// <reference path="../05_modules/lib/jquery/jquery.d.ts" />
 var sc;
 (function (sc) {
     var Controller = (function () {
