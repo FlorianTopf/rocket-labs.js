@@ -1,5 +1,5 @@
 module.exports = function(grunt) {
-    var typeScriptPath = '01_typescript/';
+    var typeScriptPath = '02_typescript/';
 
     grunt.initConfig({
         clean: {
