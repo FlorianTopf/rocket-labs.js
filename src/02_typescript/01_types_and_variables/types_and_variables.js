@@ -19,7 +19,9 @@ var Color;
 var c = Color.Green;
 name = "Max";
 var greeting = "Hello, " + name + "! Your name has " + name.length + " characters";
-console.log(greeting);
+function greet() {
+    console.log(greeting);
+}
 var opts = {};
 opts.commandline = ['hello', 'world'];
 opts.commandline = 'hello world';

@@ -1,6 +1,6 @@
 function sayHello(name) {
     if (name === void 0) { name = "Welt"; }
-    alert("Hallo " + name);
+    console.log("Hallo " + name);
 }
 function sayHello1(name) {
     return "Hello " + name;
@@ -13,14 +13,15 @@ function buildName(firstName) {
     return firstName + " " + restOfName.join(" ");
 }
 sayHello("Max");
-var func;
+var func1;
+func1 = function (a, b) { return a + b; };
 function add1(x, y) {
     return x + y;
 }
-function add2(x, y) { return x + y; }
-var func1 = add1;
-var func2 = add2;
-var num = func1(17, 2);
+var add = add1;
+var func = func1;
+var num1 = add(17, 2);
+var num2 = func(17, 2);
 var sum1 = function (x, y) { return x + y; };
 var sum2 = function (x, y) { return x + y; };
 sum2(1, 5);

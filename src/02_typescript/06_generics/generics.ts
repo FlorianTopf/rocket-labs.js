@@ -51,6 +51,7 @@ class Human extends Being {
 		return this.name;
 	}
 }
+
 // test object 3
 class SuperHuman extends Human {
 	public constructor(name: string, age: number) {
@@ -91,5 +92,6 @@ var contract: Contract<Human> = new Contract(persons);
 contract.getParties();
 
 var beings: Being[] = [new Human("Florian", 31), new Being(250)];
-// the following line will create two errors, which?
+console.log(beings);
+// the following line will create two type errors, which?
 //var invalidContract: Contract<Being> = new Contract(beings);

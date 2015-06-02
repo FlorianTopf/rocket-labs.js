@@ -1,4 +1,4 @@
-/// <reference path="jquery.d.ts" />
+/// <reference path="lib/jquery/jquery.d.ts" />
 class Person {
    public name;
 

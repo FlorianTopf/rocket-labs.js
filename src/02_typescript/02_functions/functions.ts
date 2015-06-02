@@ -1,6 +1,6 @@
 // a function returning nothing with default value
 function sayHello(name: string = "Welt"): void {
-	alert("Hallo " + name);
+	console.log("Hallo " + name);
 }
 
 // a function return string with optional value
@@ -17,22 +17,22 @@ sayHello("Max"); // will compile
 //sayHello(5); // will fail to compile
 
 // function declaration
-var func: (a: number, b: number) => number;
+var func1: (a: number, b: number) => number;
+// implementation
+func1 = function(a, b) { return a + b };
 
 // function implementation
 function add1(x: number, y: number): number {
 	return x + y;
 }
 
-// function implementation (the same in js as above)
-function add2(x: number, y: number): number { return x + y }
-
 // assignment
-let func1 = add1;
-let func2 = add2;
+let add = add1;
+let func = func1;
 
-// call
-var num: number = func1(17, 2);
+// calls
+var num1: number = add(17, 2);
+var num2: number = func(17, 2);
 
 // anonymous function including parameter and return types
 var sum1 = function(x: number, y: number): number { return x+y; };
@@ -53,7 +53,7 @@ var deck = {
         // as we see in the compilation it assigns the parent scope to a local variable
         return () => {
         // this call wont work, since 'this' refers to local scope	
-        //return function {	
+        //return function() {	
             var pickedCard = Math.floor(Math.random() * 52);
             var pickedSuit = Math.floor(pickedCard / 13);
 			

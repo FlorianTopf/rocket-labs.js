@@ -29,7 +29,11 @@ name = "Max"; // this works
 
 // template strings
 var greeting = `Hello, ${name}! Your name has ${name.length} characters`;
-console.log(greeting);
+
+// void type
+function greet(): void {
+	console.log(greeting);
+}
 
 // union types
 // just forget about interface for the moment
@@ -38,7 +42,7 @@ interface RunOptions {
 	commandline: string[]|string;
 }
 
-var opts: RunOptions = {};
+var opts: RunOptions = <RunOptions>{};
 // this won't compile
 //opts.commandline = [42];
 // these assignments will work
