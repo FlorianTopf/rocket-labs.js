@@ -16,6 +16,10 @@ Rocket Labs - Javascript Workshops
 ### TypeScript ###
 
 * www.typescriptlang.org
+** http://www.typescriptlang.org/Playground
+** http://www.typescriptlang.org/Content/TypeScript%20Language%20Specification.pdf
 * https://github.com/Microsoft/TypeScript/wiki/ 
 * http://definitelytyped.org/ 
+** http://definitelytyped.org/tsd/
 * http://gruntjs.com
+* https://nodejs.org/
