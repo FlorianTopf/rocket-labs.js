@@ -20,3 +20,15 @@ var c = Color.Green;
 name = "Max";
 var greeting = "Hello, " + name + "! Your name has " + name.length + " characters";
 console.log(greeting);
+var opts = {};
+opts.commandline = ['hello', 'world'];
+opts.commandline = 'hello world';
+function formatCommandline(c) {
+    if (typeof c === 'string') {
+        return c.trim();
+    }
+    else {
+        return c.join(' ');
+    }
+}
+console.log(formatCommandline(opts.commandline));
