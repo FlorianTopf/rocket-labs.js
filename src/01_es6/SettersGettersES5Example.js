@@ -1,7 +1,14 @@
 /**
  * Created by vesela on 01.06.15.
  */
-
+/**
+ * These two keywords define accessor functions: a getter and a setter
+ * for the fullName property. When the property is accessed, the return value from the getter is used.
+ * When a value is set, the setter is called and passed the value that was set.
+ * It's up to you what you do with that value, but what is returned from the setter
+ * is the value that was passed in – so you don't need to return anything.
+ *
+ */
 var person = {
     firstName: 'Jimmy',
     lastName: 'Smith',
