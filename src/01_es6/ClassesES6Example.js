@@ -2,11 +2,11 @@
  * Created by vesela on 01.06.15.
  */
 
-class SkinnedMesh extends THREE.Mesh {
-    constructor(geometry, materials) {
-        super(geometry, materials);
+class SkinnedMesh extends THREE.Mesh { //example of inheritance
+    constructor(geometry, materials) { //example of constructor
+        super(geometry, materials); //calling of the parent constructor
 
-        this.idMatrix = SkinnedMesh.defaultMatrix();
+        this.idMatrix = SkinnedMesh.defaultMatrix();//using of static method
         this.bones = [];
         this.boneMatrices = [];
         //...
@@ -15,13 +15,13 @@ class SkinnedMesh extends THREE.Mesh {
         //...
         super.update();
     }
-    get boneCount() {
+    get boneCount() { //getter
         return this.bones.length;
     }
-    set matrixType(matrixType) {
+    set matrixType(matrixType) { //setter
         this.idMatrix = SkinnedMesh[matrixType]();
     }
-    static defaultMatrix() {
+    static defaultMatrix() { //declaration of static method
         return new THREE.Matrix4();
     }
 }
