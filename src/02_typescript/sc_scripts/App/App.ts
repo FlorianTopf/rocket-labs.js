@@ -1,34 +1,10 @@
 /// <reference path="../05_modules/lib/jquery/jquery.d.ts" />
 
 module sc {
-    export interface ControllerOptions {
-    }
-
-    interface ControllerInterface {
-        new (options: ControllerOptions);
-    }
-
-    export class Controller {
-        constructor(options: ControllerOptions) {
-        }
-    }
-
-    export interface ToolInterface {
-    }
-
-    export interface FeatureInterface {
-    }
-
-    export interface HelperInterface {
-    }
-
-    export interface ServiceInterface {
-    }
-
     export module App {
         export var cfg = {
             vendorPrefix: 'App_',
-            setElementsToClose: '.chart-popover',
+            selElementsToClose: '.chart-popover',
             selProfiler: '#ajax-profiler-block',
             modalAutoSelector: '.modal-auto'
         };
@@ -85,12 +61,9 @@ module sc {
             //this.Helper.dynamicIframeHeight();
 
             //this.Helper.collapsibleAlert();
-
-            bindDoubleClickPrevention();
         }
 
         function detectBrowserFeatures(): void {
-            //imitateJson();
             this.browserFeatures.localStorage = supportsLocalStorage();
         }
 
@@ -103,61 +76,6 @@ module sc {
             } catch (e) {
                 return false;
             }
-        }
-
-        function bindDoubleClickPrevention(): void {
-            /*
-            $('body').on('click', '.double-click-prevention', function() {
-                //get all click events from object and remove them
-                let events = $._data(this, "events");
-
-                if (undefined != events && undefined != events.click) {
-                    let clickEvents = events.click.slice(),
-                        $element = $(this);
-
-                    $element.off('click');
-
-                    //and assign them back them after cooldown period
-                    window.setTimeout(function() {
-                        clickEvents.forEach(function (e: JQueryEventObject) {
-                            $element.on("click", e.handler)
-                        });
-                    }, 1000);
-                }
-            });
-             */
-        }
-
-        /**
-         * taken from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON
-         */
-        function imitateJson(): void {
-            //if (window.JSON !== undefined) {
-            //    return;
-            //}
-            //
-            //window.JSON = {
-            //    parse: function (sJSON: string) {
-            //        return eval("(" + sJSON + ")");
-            //    },
-            //    stringify: function (vContent) {
-            //        if (vContent instanceof Object) {
-            //            var sOutput = "";
-            //            if (vContent.constructor === Array) {
-            //                for (var nId = 0; nId < vContent.length; sOutput += this.stringify(vContent[nId]) + ",", nId++);
-            //                return "[" + sOutput.substr(0, sOutput.length - 1) + "]";
-            //            }
-            //            if (vContent.toString !== Object.prototype.toString) {
-            //                return "\"" + vContent.toString().replace(/"/g, "\\$&") + "\"";
-            //            }
-            //            for (var sProp in vContent) {
-            //                sOutput += "\"" + sProp.replace(/"/g, "\\$&") + "\":" + this.stringify(vContent[sProp]) + ",";
-            //            }
-            //            return "{" + sOutput.substr(0, sOutput.length - 1) + "}";
-            //        }
-            //        return typeof vContent === "string" ? "\"" + vContent.replace(/"/g, "\\$&") + "\"" : String(vContent);
-            //    }
-            //};
         }
 
         export function runController() {
@@ -187,6 +105,10 @@ module sc {
             let translations = this.getStore('generalTranslations');
 
             return translations[key] || {};
+        }
+
+        export function registerService(service: ServiceInterface, name: string) {
+            this.services[name] = service;
         }
     }
 }

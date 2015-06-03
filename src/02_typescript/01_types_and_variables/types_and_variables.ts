@@ -38,8 +38,8 @@ function greet(): void {
 // union types
 // just forget about interface for the moment
 interface RunOptions {
-	program: string;
-	commandline: string[]|string;
+	program?: string;
+	commandline?: string[]|string;
 }
 
 var opts: RunOptions = <RunOptions>{};
