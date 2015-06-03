@@ -1,7 +1,3 @@
-<<<<<<< HEAD:src/02_typescript/sc_scripts/App.js
-/// <reference path="../05_modules/jquery.d.ts" />
-=======
->>>>>>> 61a6d77... rename (windows):src/02_typescript/sc_scripts/app.js
 var sc;
 (function (sc) {
     var App;

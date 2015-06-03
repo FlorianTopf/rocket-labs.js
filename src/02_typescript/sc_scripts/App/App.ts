@@ -1,5 +1,3 @@
-/// <reference path="../05_modules/lib/jquery/jquery.d.ts" />
-
 module sc {
     export module App {
         export var cfg = {
