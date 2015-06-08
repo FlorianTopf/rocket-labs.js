@@ -1,0 +1,9 @@
+{
+  "name": "angular-js-presentation",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "angular": "^1.4.0",
+    "reveal.js": "^3.1.0"
+  }
+}

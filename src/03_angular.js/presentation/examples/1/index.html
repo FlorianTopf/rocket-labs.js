@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        body {
+            margin: 30px;
+            font-size: 1.9em;
+        }
+        input {
+            padding: 5px 10px;
+        }
+    </style>
+    <script src="./../../node_modules/angular/angular.js"></script>
+</head>
+<body ng-app>
+    <input type="text" ng-model="name" placeholder="write your name">
+
+    <span ng-show="name">Hello {{ name }}</span>
+</body>
+</html>
+
+<!-- ng-model-options="{ debounce: 400 }"-->
+
+
+<!--
+    <input id="hello-input" type="text" />
+    <span id="hello-output">Hello </span>
+    <script>
+      var inputField = $('#hello-input');
+      var label = $('#hello-output');
+
+      inputField.on('keyup', function() {
+        var value = inputField.val();
+        label.html('Hello ' + value);
+      });
+    </script>
+-->
+
+<!--
+    <input id="hello-input" type="text" />
+    <span id="hello-output">Hello </span>
+    <script>
+      var inputField = document.getElementById('hello-input');
+      var label = document.getElementById('hello-output');
+
+      var handleKeyup = function() {
+        var value = inputField.value;
+        label.innerHTML = 'Hello ' + value;
+      };
+
+      if (document.addEventListener) {
+        document.addEventListener('keyup', handleKeyup);
+      } else if (document.attachEvent) {
+        document.attachEvent('keyup', handleKeyup);
+      }
+    </script>
+-->

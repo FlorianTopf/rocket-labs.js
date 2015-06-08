@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>reveal.js - The HTML Presentation Framework</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="./node_modules/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="./node_modules/reveal.js/css/theme/black.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="./node_modules/reveal.js/lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi)
+                ? './node_modules/reveal.js/css/print/pdf.css'
+                : './node_modules/reveal.js/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="./node_modules/reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+        <section>
+            <h1>Introduction to AngularJS</h1>
+            <p>
+                <small>
+                    <small>Created by <a href="http://konradcerny.cz">Konrad Cerny</a> / <a href="http://twitter.com/rokekrony">@rokekrony</a></small>
+                </small>
+            </p>
+        </section>
+
+        <section>
+            <h2>Agenda</h2>
+            <ul>
+                <li>What is angular</li>
+                <li>ViewModel</li>
+                <li>Model</li>
+                <li>Directive</li>
+                <li>Events</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>What is Angular</h2>
+            <p>
+                <br/>
+                JavaScript framework
+                <br/>
+                <br/>
+            </p>
+            <p>
+                MV*
+            </p>
+            <p>
+                <small>Model &ndash; View &ndash; Controller</small>
+                <br/>
+                <small>Model &ndash; View &ndash; ViewModel</small>
+                <aside class="notes">
+                    HTTP Request -> Controller -> (Model, View)
+                </aside>
+            </p>
+        </section>
+
+        <section>
+            <h2>Advantages</h2>
+            <ul>
+                <li>dependency injection</li>
+                <li>templating engine</li>
+                <li>jqLite</li>
+                <li>Easy data manipulation</li>
+                <li>data binding</li>
+                <li>directives</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Application flow</h2>
+            <img src="./images/run.png" alt="" width="70%"/>
+        </section>
+
+        <section>
+            <h2>Structure</h2>
+            <p>
+                <img src="./images/structure.png" style="background-color: #ccc" alt="structure"/>
+                <br/>
+                <small style="font-size: 0.4em">
+                    http://bit.ly/1MXoKAa
+                </small>
+            </p>
+        </section>
+
+        <section>
+            <h2>Built-in Functions</h2>
+            <ul style="display: block">
+                <li>
+                    <pre><code data-trim>
+angular.toJson(obj, pretty);
+angular.fromJson(json);
+                    </code></pre>
+                </li>
+                <li>
+                    <pre><code data-trim>
+angular.isArray
+angular.isObject
+&hellip;
+                    </code></pre>
+                </li>
+                <li>
+                    <pre><code data-trim>
+                        angular.equals(o1, o2);
+                    </code></pre>
+                </li>
+                <li>
+                    <pre><code data-trim>
+                        angular.merge(dst, src);
+                    </code></pre>
+                </li>
+            </ul>
+            <p>
+                <code>&hellip;</code>
+            </p>
+        </section>
+
+        <section>
+            <h2>Built-in Filters</h2>
+                    <code>
+date
+                    </code>
+            <br/>
+                    <code>
+orderBy
+                    </code>
+            <br/>
+                    <code>
+uppercase
+                    </code>
+                    <code>
+&hellip;
+                    </code>
+                    <pre><code data-trim>
+                        <span>{{ registrationDate | date:"d.m.Y" }}</span>
+                    </code></pre>
+        </section>
+
+        <section>
+            <h2>Built-in Services</h2>
+            <code>
+                $http / $resource
+            </code>
+            <br/>
+            <code>
+                $q
+            </code>
+            <br/>
+            <code>
+                $sce
+            </code>
+            <br/>
+            <code>
+                $location
+            </code>
+            <code>
+                &hellip;
+            </code>
+                    <pre><code data-trim>
+$http.get('/someUrl')
+    .success()
+    .error()
+                    </code></pre>
+        </section>
+
+        <section>
+            <h2>Built-In directives</h2>
+            <ul>
+                <li>ng-app</li>
+                <li>ng-model</li>
+                <li>ng-repeat</li>
+                <li>ng-show / ng-hide</li>
+                <li>ng-click / ng-dblclick</li>
+                <li>ng-mouseenter</li>
+                <li>ng-change</li>
+                <li>&hellip;</li>
+            </ul>
+        </section>
+
+        <section>
+            <section>
+                <h2>Hello World</h2>
+                <div>
+                    <pre><code data-trim>
+<div ng-app="myAppName">
+    <input ng-model="name">
+
+    <h1 ng-show="name">Hello {{ name }}</h1>
+</div>
+
+<script src="angular.min.js"></script>
+                    </code></pre>
+                </div>
+                <ul>
+                    <li>
+                        Inject AngularJS
+                        <ul>
+                            <li>route, sanitize, animate, &hellip;</li>
+                        </ul>
+                    </li>
+                    <li>ng-app</li>
+                    <li>
+                        two-way data binding
+                        <p><small>example :)</small></p>
+                    </li>
+                </ul>
+            </section>
+        </section>
+
+        <section>
+            <h2>ViewModel</h2>
+            <p>Communication between view and model</p>
+            <ul>
+                <!--
+                <li>
+                    <pre style="width: 110%;"><code data-trim>
+// app.js
+var app = angular.module('SellerCenter_Product', []);
+
+app.controller('MainCtrl', function() {});
+
+// index.html
+<div ng-controller="MainCtrl as main">
+    <input type="text" ng-model="main.name">
+
+    <h1 ng-show="main.name">Hello {{ main.name }}</h1>
+</div>
+                    </code></pre>
+                </li>
+                -->
+                <li>
+                    ng-controller
+                </li>
+                <li>
+                    Creates scope
+                </li>
+                <li>
+                    Use "Controller as" syntax
+                </li>
+            </ul>
+            <p><small>example 2 :)</small></p>
+        </section>
+
+        <section>
+            <h2>Dependency injection</h2>
+        </section>
+
+        <section>
+            <h2>Model</h2>
+            <p>Domain specific</p>
+            <ul>
+                <li>Value</li>
+                <li>Constant</li>
+                <aside class="notes">
+                    - same as value but can be injected to config
+                </aside>
+                <li>Factory</li>
+                <aside class="notes">
+                    - returns value
+                </aside>
+                <li>
+                    Service
+                    <br/>
+                    <pre><code style="width: 110%" data-trim>
+angular.service('serviceName', function() {
+    ...
+});
+                    </code></pre>
+                </li>
+                <aside class="notes">
+                    - singleton
+                    - returns object
+                </aside>
+                <li>Provider</li>
+                <aside class="notes">
+                    - can be injected to config
+                </aside>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Directive</h2>
+            <p>The way how to teach HTML new tricks.</p>
+            <aside class="notes">
+                <ul>
+                    <li>function</li>
+                    <li>manipulation with DOM</li>
+                    <li>parent's scope</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section>
+            <h2>Directive</h2>
+            <p><strong>How we can use it?</strong></p>
+            <ul>
+                <li>
+                    E = element
+                    <br>
+                    <pre><code data-trim>
+                        <profile></profile>
+                    </code></pre>
+                </li>
+                <li>
+                    A = attribute
+                    <br>
+                    <pre><code data-trim>
+                        <div profile></div>
+                    </code></pre>
+                </li>
+                <li>
+                    C = class
+                    <br>
+                    <pre><code style="width: 110%" data-trim>
+                        <div class="profile"></div>
+                    </code></pre>
+                </li>
+                <li>
+                    <span style="color: #666">M = comment</span>
+                    <br>
+                    <pre><code style="width: 110%" data-trim>
+                        <!-- directive: profile -->
+                    </code></pre>
+                </li>
+            </ul>
+        </section>
+<!--
+        <section>
+            <h2>Directive link or compile</h2>
+            <p>
+                <strong>link</strong>
+                <br/>
+                <strong>compile</strong>
+
+                <aside class="notes">
+                    - for manipulation with DOM in $compile phase
+                    - has to return link function
+                    - doesn't have access to scope
+                </aside>
+            </p>
+        </section>
+-->
+
+        <section>
+            <h2>Directive</h2>
+            <p>
+                show time
+            </p>
+        </section>
+
+        <section>
+            <h2>Events</h2>
+            <p>
+                <img src="./images/events.png" alt="event flow"/>
+                <br/>
+                <small style="font-size: 0.4em">
+                    http://bit.ly/1QB6UbT
+                </small>
+            </p>
+        </section>
+
+        <section>
+            <h2>Events</h2>
+            <pre><code data-trim>
+$scope.$on('child', function (event, data) {
+    ...
+});
+            </code></pre>
+            <pre><code data-trim>
+                $scope.$emit('child', 'Some data');
+            </code></pre>
+            <pre><code data-trim>
+                $scope.$broadcast('child', 'Some data');
+            </code></pre>
+
+            <p>
+                <br/>
+                <code>$rootScope</code> behaviour is slightly different
+            </p>
+        </section>
+
+        <section>
+            <h2>Combine your code with jQuery</h2>
+            <pre><code data-trim>
+var processChange = function () {
+    var date = new Date(element.datepicker('getDate'));
+
+    scope.$apply(function ($scope) {
+        // Change bound variable
+    });
+};
+
+element.datepicker({
+    onSelect: processChange
+});
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Why is AngularJs so cool?</h2>
+            <ul>
+                <li>testable (e2e, unit)</li>
+                <li>HTML templates</li>
+                <li>Directives</li>
+                <li>Two-way data binding</li>
+                <li>Better structure to JS</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Q</h2>
+
+            <br/>
+            <br/>
+            <br/>
+            <p>
+                <strong>interesting reading:</strong>
+            </p>
+            <ul>
+                <li>https://angularjs.org/</li>
+                <li>https://thinkster.io/a-better-way-to-learn-angularjs/</li>
+                <li>https://egghead.io/technologies/angularjs</li>
+            </ul>
+        </section>
+    </div>
+
+</div>
+
+<script src="./node_modules/reveal.js/lib/js/head.min.js"></script>
+<script src="./node_modules/reveal.js/js/reveal.js"></script>
+
+<script>
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+            { src: './node_modules/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: './node_modules/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: './node_modules/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: './node_modules/reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: './node_modules/reveal.js/plugin/zoom-js/zoom.js', async: true },
+            { src: './node_modules/reveal.js/plugin/notes/notes.js', async: true }
+        ]
+    });
+
+</script>
+
+</body>
+</html>
