@@ -1,0 +1,16 @@
+<div class="panel widget-notifications">
+    <div class="panel-heading">
+        <span class="panel-title"><i class="panel-title-icon fa fa-star"></i>{{ vm.name }}</span>
+    </div>
+    <div class="panel-body padding-sm">
+        <div class="notifications-list">
+            <div class="notification" ng-repeat="item in vm.news">
+                <div class="notification-title text-danger">{{ item.title }}</div>
+                <div class="notification-description" ng-bind-html="item.description"></div>
+                <div class="notification-ago">{{ item.ago }}</div>
+                <div ng-class="item.icon"></div>
+            </div>
+        </div>
+        <a href="#" class="notifications-link">MORE NOTIFICATIONS</a>
+    </div>
+</div>

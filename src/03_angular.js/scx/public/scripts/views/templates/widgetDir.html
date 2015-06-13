@@ -1,0 +1,18 @@
+<div ng-class="vm.styles.widget">
+    <div class="panel-heading">
+        <div class="widget-profile-bg-icon"><i ng-class="vm.styles.icon"></i></div>
+        <div class="widget-profile-header">
+            <span>{{ vm.title }}</span><br>
+            {{ vm.subTitle }}
+        </div>
+    </div>
+    <div class="list-group">
+        <a ng-href="{{item.url}}" class="list-group-item" ng-repeat="item in vm.items">
+            {{ item.name }}
+            <span ng-if="item.amount" ng-class="item.style">{{ item.amount }}</span>
+        </a>
+        <span ng-class="vm.styles.listGroup" ng-if="vm.items[0].amount">
+            Total<span class="badge badge-default">{{ vm.getTotalAmount() }}</span>
+        </span>
+    </div>
+</div>

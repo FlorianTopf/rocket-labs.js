@@ -1,0 +1,137 @@
+<page-header-dir path="vm.path" icon="fa-users"></page-header-dir>
+<form id="sellerAddForm" name="sellerAddForm" class="panel form-horizontal" novalidate
+      ng-submit="vm.submit(sellerAddForm)">
+    <fieldset layout="horizontal">
+        <div class="panel-body">
+            <div id="nameGroup" class="form-group row"
+                 ng-class="{ 'has-error': sellerAddForm.name.$invalid }">
+                <label for="name" class="col-sm-3 control-label">
+                    Name<span class="required"></span>
+                </label>
+                <div class="col-sm-9 control-label">
+                    <input type="text" id="name" name="name"
+                           ng-model="vm.form.name" required
+                           class="form-control"
+                           column-label-class="col-sm-3 control-label"
+                           column-element-class="col-sm-9 control-label">
+                </div>
+            </div>
+            <div id="emailGroup" class="form-group row"
+                 ng-class="{ 'has-error': sellerAddForm.email.$invalid }">
+                <label for="email" class="col-sm-3 control-label">
+                    E-mail<span class="required"></span>
+                </label>
+                <div class="col-sm-9 control-label">
+                    <input type="email" id="email" name="email" class="form-control"
+                           ng-model="vm.form.email" required
+                           column-label-class="col-sm-3 control-label"
+                           column-element-class="col-sm-9 control-label">
+                </div>
+            </div>
+            <div id="sellerNameGroup" class="form-group row"
+                 ng-class="{ 'has-error': sellerAddForm.sellerName.$invalid }">
+                <label for="sellerName" class="col-sm-3 control-label">
+                    Seller Name<span class="required"></span>
+                </label>
+                <div class="col-sm-9 control-label">
+                    <input type="text" id="sellerName" name="sellerName" class="form-control"
+                           ng-model="vm.form.sellerName" required
+                           column-label-class="col-sm-3 control-label"
+                           column-element-class="col-sm-9 control-label">
+                </div>
+            </div>
+            <div id="companyNameGroup" class="form-group row"
+                 ng-class="{ 'has-error': sellerAddForm.companyName.$invalid }">
+                <label for="companyName" class="col-sm-3 control-label">
+                    Company Name<span class="required"></span>
+                </label>
+                <div class="col-sm-9 control-label">
+                    <input type="text" id="companyName" name="companyName" class="form-control"
+                           ng-model="vm.form.companyName" required
+                           column-label-class="col-sm-3 control-label"
+                           column-element-class="col-sm-9 control-label">
+                </div>
+            </div>
+            <div id="address1Group" class="form-group row"
+                 ng-class="{ 'has-error': sellerAddForm.address1.$invalid }">
+                <label for="address1" class="col-sm-3 control-label">
+                    Address 1<span class="required"></span>
+                </label>
+                <div class="col-sm-9 control-label">
+                    <input type="text" id="address1" name="address1" class="form-control"
+                           ng-model="vm.form.address1" required
+                           column-label-class="col-sm-3 control-label"
+                           column-element-class="col-sm-9 control-label">
+                </div>
+            </div>
+            <div id="address2Group" class="form-group row"
+                 ng-class="{ 'has-error': sellerAddForm.address2.$invalid }">
+                <label for="address2" class="col-sm-3 control-label">
+                    Address 2<span class="required"></span>
+                </label>
+                <div class="col-sm-9 control-label">
+                    <input type="text" id="address2" name="address2" class="form-control"
+                           ng-model="vm.form.address2"
+                           column-label-class="col-sm-3 control-label"
+                           column-element-class="col-sm-9 control-label">
+                </div>
+            </div>
+            <div id="cityGroup" class="form-group row"
+                 ng-class="{ 'has-error': sellerAddForm.city.$invalid }">
+                <label for="city" class="col-sm-3 control-label">
+                    City<span class="required"></span>
+                </label>
+                <div class="col-sm-9 control-label">
+                    <input type="text" id="city" name="city" class="form-control"
+                           ng-model="vm.form.city" required
+                           column-label-class="col-sm-3 control-label"
+                           column-element-class="col-sm-9 control-label">
+                </div>
+            </div>
+            <div id="zipCodeGroup" class="form-group row"
+                 ng-class="{ 'has-error': sellerAddForm.zipCode.$invalid }">
+                <label for="zipCode" class="col-sm-3 control-label">
+                    Zip Code<span class="required"></span>
+                </label>
+                <div class="col-sm-9 control-label">
+                    <input type="text" id="zipCode" name="zipCode" class="form-control"
+                           ng-model="vm.form.zipCode" required
+                           column-label-class="col-sm-3 control-label"
+                           column-element-class="col-sm-9 control-label">
+                </div>
+            </div>
+            <div id="countryGroup" class="form-group row"
+                 ng-class="{ 'has-error': sellerAddForm.countryId.$invalid }">
+                <label for="countryId" class="col-sm-3 control-label">
+                    Country<span class="required"></span>
+                </label>
+                <div class="col-sm-9 control-label">
+                    <select id="countryId" name="countryId" class="form-control"
+                            ng-model="vm.form.countryId" required
+                            column-label-class="col-sm-3 control-label"
+                            column-element-class="col-sm-9 control-label"
+                            ng-options="country.code as country.name for country in vm.countries">
+                    </select>
+                </div>
+            </div>
+            <div id="activeGroup" class="form-group row">
+                <label for="active"
+                       class="col-sm-3 control-label">Active</label>
+                <div class="col-sm-2 control-label">
+                    <input type="checkbox" id="active" name="active" value="1"
+                           ng-model="vm.form.active"
+                           class="form-control"
+                           column-label-class="col-sm-3 control-label"
+                           column-element-class="col-sm-2 control-label">
+                </div>
+            </div>
+            <div id="saveGroup" class="form-group row">
+                <div class="col-sm-offset-3 col-sm-2">
+                    <button type="submit" name="userAdd"
+                            class="btn btn-primary"
+                            column-element-class="col-sm-offset-3 col-sm-2">Save</button>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>
