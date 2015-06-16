@@ -1,0 +1,17 @@
+<ul class="breadcrumb breadcrumb-page">
+    <div class="breadcrumb-label text-light-gray">You are here: </div>
+    <li><a ui-sref="scx.dashboard.widgets">Home</a></li>
+    <li ng-repeat="part in path track by $index" ng-class="{ active: $last }">
+        <a ui-sref="{{ part.link }}">{{ part.name }}</a>
+    </li>
+</ul>
+<div class="page-header">
+    <div class="row">
+        <!-- Page header, center on small screens -->
+        <h1 class="col-xs-12 col-sm-4 text-center text-left-sm">
+            <i class="fa page-header-icon" ng-class="icon"></i>
+            <!-- Page header is always the last in path -->
+            &nbsp;&nbsp;{{ path[path.length-1].name }}
+        </h1>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<page-header-dir path="vm.path" icon="fa-users"></page-header-dir>
+<div class="row">
+    <div class="col-md-12">
+        <input type="hidden" id="search" value=""> <!-- add search value -->
+        <div class="table-light">
+            <div class="table-caption">
+                <div class="DT-lf-left">
+                    <a class="btn btn-default add-client" id="add-client"
+                       ui-sref="scx.seller-add">
+                        <span id="icon_open_create_client"><i class="fa fa-plus-circle"></i></span>
+                        Seller
+                    </a>
+                </div>
+            </div>
+        </div>
+        <table class="table table-bordered"
+               datatable="ng"
+               dt-options="vm.sellerTableOpts"
+               dt-column-defs="vm.sellerTableColDefs"
+               id="js-datatables-seller">
+            <thead>
+                <tr><th ng-repeat="header in vm.sellerTableHdrs track by $index">{{ header }}</th></tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="seller in vm.sellers">
+                    <td>{{ seller.id }}</td>
+                    <td><a ui-sref="scx.seller-add({ id: seller.id })">{{ seller.email }}</a></td>
+                    <td>{{ seller.name }}</td>
+                    <td>{{ seller.sellerName }}</td>
+                    <td><switch id="seller.id" name="seller.id" ng-model="seller.active" class="green"></switch></td>
+                    <td><a href ng-click="vm.deleteSeller()">
+                        <span class="btn btn-sm btn-primary">Delete</span>
+                    </a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

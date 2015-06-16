@@ -1,0 +1,104 @@
+<page-header-dir path="vm.path" icon="fa-desktop"></page-header-dir>
+<form id="userAddForm" name="userAddForm" class="panel form-horizontal" novalidate
+      ng-submit="vm.submit(userAddForm)">
+    <fieldset layout="horizontal">
+        <div class="panel-body">
+            <div id="nameGroup" class="form-group row"
+                 ng-class="{ 'has-error': userAddForm.name.$dirty && userAddForm.name.$invalid }">
+                <label for="name" class="col-sm-3 control-label">
+                    Name<span class="required"></span>
+                </label>
+                <div class="col-sm-9 control-label">
+                    <input type="text" id="name" name="name"
+                           ng-model="vm.form.name" required
+                           class="form-control"
+                           column-label-class="col-sm-3 control-label"
+                           column-element-class="col-sm-9 control-label">
+                </div>
+            </div>
+            <div id="emailGroup" class="form-group row"
+                 ng-class="{ 'has-error': userAddForm.email.$dirty && userAddForm.email.$invalid }">
+                <label for="email" class="col-sm-3 control-label">
+                    E-mail<span class="required"></span>
+                </label>
+                <div class="col-sm-9 control-label">
+                    <input type="email" id="email" name="email" class="form-control"
+                           ng-model="vm.form.email" required
+                           column-label-class="col-sm-3 control-label"
+                           column-element-class="col-sm-9 control-label">
+                </div>
+            </div>
+            <div id="roleIdGroup" class="form-group row"
+                 ng-class="{ 'has-error': userAddForm.roleId.$dirty && userAddForm.roleId.$invalid }">
+                <label for="roleId" class="col-sm-3 control-label">
+                    Role<span class="required"></span>
+                </label>
+                <div class="col-sm-9 control-label">
+                    <select id="roleId" name="roleId" class="form-control"
+                            ng-model="vm.form.roleId" required
+                            column-label-class="col-sm-3 control-label"
+                            column-element-class="col-sm-9 control-label"
+                            ng-options="role.id as role.name for role in vm.roles">
+                    </select>
+                </div>
+            </div>
+            <div id="activeGroup" class="form-group row">
+                <label for="active"
+                       class="col-sm-3 control-label">Active</label>
+                <div class="col-sm-2 control-label">
+                    <input type="checkbox" id="active" name="active" value="1"
+                           ng-model="vm.form.active"
+                           class="form-control"
+                           column-label-class="col-sm-3 control-label"
+                           column-element-class="col-sm-2 control-label">
+                </div>
+            </div>
+            <div id="passwordGroup" class="form-group row">
+                <label for="password" class="col-sm-3 control-label">
+                    Password<span class="required"></span>
+                </label>
+                <div class="col-sm-9 control-label">
+                    <input type="password" id="password" name="password" class="form-control"
+                           ng-model="vm.form.password" required
+                           column-label-class="col-sm-3 control-label"
+                           column-element-class="col-sm-9 control-label">
+                </div>
+            </div>
+            <div id="passwordConfirmGroup" class="form-group row">
+                <label for="passwordConfirm" class="col-sm-3 control-label">
+                    Confirm<span class="required"></span>
+                </label>
+                <div class="col-sm-9 control-label">
+                    <input type="password" id="passwordConfirm" name="passwordConfirm" class="form-control"
+                           match="vm.form.password"
+                           ng-model="vm.form.passwordConfirm" required
+                           column-label-class="col-sm-3 control-label"
+                           column-element-class="col-sm-9 control-label">
+                </div>
+            </div>
+            <div id="saveGroup" class="form-group row">
+                <div class="col-sm-offset-3 col-sm-3">
+                    <button type="submit" name="userAdd"
+                           class="btn btn-primary"
+                           column-element-class="col-sm-offset-3 col-sm-2">Save</button>
+                </div>
+            </div>
+            <div id="messageGroup" class="form-group row">
+                <div class="col-sm-offset-3 col-sm-3">
+                    <div ng-show="userAddForm.$invalid && vm.submitted">
+                        <div ng-show="userAddForm.passwordConfirm.$error.match" class="alert alert-danger">
+                            Passwords do not match!
+                        </div>
+                    </div>
+                    <div ng-show="vm.submitted && vm.success">
+                        <div class="alert alert-success">User saved!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+</form>
+
+
+

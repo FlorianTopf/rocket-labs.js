@@ -1,0 +1,66 @@
+<div class="theme-silver page-signin">
+    <div id="page-signin-bg">
+        <div class="overlay"></div>
+        <img src="/images/brandenburger-tor.jpg" alt="">
+    </div>
+    <div class="signin-container">
+        <div class="signin-info">
+            <a href="#" class="logo">
+                <i class="fa fa-rocket icon"></i>
+            </a>
+            <div class="slogan">
+                Seller&nbsp;Center&nbsp;Express
+            </div>
+            <ul>
+                <li><i class="fa fa-sitemap signin-icon"></i>Powerful from the start</li>
+                <li><i class="fa fa-file-text-o signin-icon"></i>Proven concepts</li>
+                <li><i class="fa fa-outdent signin-icon"></i>Flexible architecture</li>
+                <li><i class="fa fa-heart signin-icon"></i>Solid engineering</li>
+            </ul>
+        </div>
+        <div class="signin-form">
+            <div class="signin-text">
+                <span>Sign In to your account</span>
+            </div>
+            <form id="loginForm" name="loginForm" novalidate ng-submit="vm.loginUser(loginForm)">
+                <div id="emailGroup" class="form-group w-icon"
+                     ng-class="{ 'has-error': (loginForm.email.$dirty && loginForm.email.$invalid) }">
+                    <input type="email" id="email" name="email"
+                           required ng-model="vm.form.email"
+                           class="form-control input-lg"
+                           placeholder="Email" autofocus="autofocus">
+                    <span class="fa fa-user signin-form-icon"></span>
+                </div>
+                <div id="passwordGroup" class="form-group w-icon"
+                     ng-class="{ 'has-error': (loginForm.password.$dirty && loginForm.password.$invalid) }">
+                    <input type="password" id="password" name="password"
+                           required ng-model="vm.form.password"
+                           class="form-control input-lg"
+                           placeholder="Password">
+                    <span class="fa fa-lock signin-form-icon"></span>
+                </div>
+                <div id="loginGroup" class="form-group form-actions">
+                    <input type="submit"
+                           value="Login"
+                           class="btn btn-lg btn-primary btn-block"
+                           group-class="form-actions">
+                </div>
+            </form>
+            <div ng-show="loginForm.$invalid && vm.submitted">
+                <div ng-show="(loginForm.email.$dirty && loginForm.email.$invalid) ||
+                    loginForm.email.$error.required" class="alert alert-danger">
+                    Please enter your email address!
+                </div>
+                <div ng-show="(loginForm.password.$dirty && loginForm.password.$invalid) ||
+                    loginForm.password.$error.required" class="alert alert-danger">
+                    Please enter your password!
+                </div>
+            </div>
+            <div class="form-actions">
+                <a ui-sref="recover" class="forgot-password" id="forgot-password-link">
+                Forgot your password?
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div id="main-navbar" class="navbar navbar-inverse" role="navigation">
+    <!-- Main menu toggle -->
+    <button type="button" id="main-menu-toggle" ng-click="vm.toggleMainMenu()">
+        <i class="navbar-icon fa fa-bars icon"></i>
+        <span class="hide-menu-text">HIDE MENU</span>
+    </button>
+    <div class="navbar-inner">
+        <!-- Main navbar header -->
+        <div class="navbar-header">
+            <!-- Logo -->
+            <a ui-sref="scx.dashboard.widgets" class="navbar-brand">
+                <i class="navbar-icon fa fa-rocket icon"></i>
+                Seller&nbsp;Center&nbsp;Express
+            </a>
+            <!-- Main navbar toggle -->
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#main-navbar-collapse">
+                <i class="navbar-icon fa fa-bars"></i>
+            </button>
+        </div>
+        <div id="main-navbar-collapse" class="collapse navbar-collapse main-navbar-collapse">
+            <div>
+                <div class="right clearfix">
+                    <ul class="nav navbar-nav pull-right right-navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle user-menu" data-toggle="dropdown">
+                                <img src="avatars/1.jpg" alt="">
+                                <span>John Doe</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#account">
+                                    <i class="dropdown-icon fa fa-user"></i>
+                                    &nbsp;&nbsp;Account
+                                </a></li>
+                                <li><a href="#settings">
+                                    <i class="dropdown-icon fa fa-cog"></i>
+                                    &nbsp;&nbsp;Settings
+                                </a></li>
+                                <li class="divider"></li>
+                                <li><a href ng-click="logoutUser()">
+                                    <i class="dropdown-icon fa fa-power-off"></i>
+                                    &nbsp;&nbsp;Log Out
+                                </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

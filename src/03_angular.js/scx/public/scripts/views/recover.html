@@ -1,0 +1,50 @@
+<div class="theme-silver page-signin">
+    <div id="page-signin-bg">
+        <div class="overlay"></div>
+        <img src="/images/brandenburger-tor.jpg" alt="">
+    </div>
+    <div class="signin-container">
+        <div class="signin-info">
+            <a href="#" class="logo">
+                <i class="fa fa-rocket icon"></i>
+            </a>
+            <div class="slogan">
+                Seller&nbsp;Center&nbsp;Express
+            </div>
+            <ul>
+                <li><i class="fa fa-sitemap signin-icon"></i>Powerful from the start</li>
+                <li><i class="fa fa-file-text-o signin-icon"></i>Proven concepts</li>
+                <li><i class="fa fa-outdent signin-icon"></i>Flexible architecture</li>
+                <li><i class="fa fa-heart signin-icon"></i>Solid engineering</li>
+            </ul>
+        </div>
+        <div class="signin-form">
+            <div class="signin-text">
+                <span>Recover your Password</span>
+            </div>
+            <form id="passwordResetForm" name="passwordResetForm" novalidate
+                  ng-submit="vm.recoverPassword(passwordResetForm)">
+            <div id="emailGroup" class="form-group"
+                 ng-class="{ 'has-error': passwordResetForm.email.$invalid }">
+                <input type="email" id="email" name="email"
+                       class="form-control input-lg form-control"
+                       required ng-model="vm.form.email"
+                       column-element-class="form-group w-icon"
+                       placeholder="Enter your Email" autofocus="autofocus">
+            </div>
+            <div id="loginGroup" class="form-group form-actions">
+                <input type="submit" value="Send Password Reset Link"
+                       class="btn btn-lg btn-primary btn-block" group-class="form-actions">
+            </div>
+            </form>
+            <!-- TODO this will display validation errors -->
+            <!--div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                {{ message }}
+            </div-->
+            <div class="form-actions">
+                <a ui-sref="login" class="forgot-password" id="forgot-password-link">Sign in</a>
+            </div>
+        </div>
+    </div>
+</div>

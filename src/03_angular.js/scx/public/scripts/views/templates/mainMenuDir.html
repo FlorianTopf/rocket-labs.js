@@ -1,0 +1,52 @@
+<div id="main-menu" role="navigation">
+    <div id="main-menu-inner">
+        <div class="menu-content top" id="menu-content-demo">
+            <div>
+                <div class="text-bg">
+                    <span class="text-slim">Welcome,</span> <span class="text-semibold">John</span>
+                </div>
+                <img src="/avatars/1.jpg" alt="" class="">
+                <div class="btn-group">
+                    <a href="#account" class="btn btn-xs btn-primary btn-outline dark">
+                        <i class="fa fa-user"></i>
+                    </a>
+                    <a href="#settings" class="btn btn-xs btn-primary btn-outline dark">
+                        <i class="fa fa-cog"></i>
+                    </a>
+                    <a href ng-click="logoutUser()" class="btn btn-xs btn-danger btn-outline dark">
+                        <i class="fa fa-power-off"></i>
+                    </a>
+                </div>
+                <a href="#" class="close">&times;</a>
+            </div>
+        </div>
+        <ul class="navigation">
+            <!-- for seller and admin -->
+            <li ui-sref-active="active">
+                <a ui-sref="scx.dashboard.widgets">
+                    <i class="menu-icon fa fa-dashboard"></i>
+                    <span class="mm-text">Dashboard</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="scx.user-setup">
+                    <i class="menu-icon fa fa-desktop"></i>
+                    <span class="mm-text">User Setup</span>
+                </a>
+            </li>
+            <!-- only for admin -->
+            <li ui-sref-active="active">
+                <a ui-sref="scx.seller-setup">
+                    <i class="menu-icon fa fa-users"></i>
+                    <span class="mm-text">Seller Setup</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="scx.cms-setup">
+                    <i class="menu-icon fa fa-files-o"></i>
+                    <span class="mm-text">CMS Setup</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

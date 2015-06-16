@@ -1,0 +1,41 @@
+<page-header-dir path="vm.path" icon="fa-desktop"></page-header-dir>
+<div class="row">
+    <div class="col-md-12">
+        <input type="hidden" id="search" value=""><!-- add search value -->
+        <div class="table-light">
+            <div class="table-caption">
+                <div class="DT-lf-left">
+                    <a class="btn btn-default add-client" id="add-client"
+                       ui-sref="scx.user-add">
+                        <span id="icon_open_create_client"><i class="fa fa-plus-circle"></i></span>
+                        User
+                    </a>
+                </div>
+            </div>
+        </div>
+        <table class="table table-bordered"
+               datatable="ng"
+               dt-options="vm.userTableOpts"
+               dt-column-defs="vm.userTableColDefs"
+               id="js-datatables-user">
+            <thead>
+                <tr><th ng-repeat="header in vm.userTableHdrs track by $index">{{ header }}</th></tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="user in vm.users">
+                    <td>{{ user.id }}</td>
+                    <td><a ui-sref="scx.user-add({ id: user.id })">{{ user.email }}</a></td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ vm.userService.getRoleNameById(user.roleId) }}</td>
+                    <td><switch id="user.id" name="user.id" ng-model="user.active" ng-change="vm.updateUserStatus(user)" class="green"></switch></td>
+                    <td><a href ng-click="vm.changeUserPassword()">
+                        <span class="btn btn-sm btn-primary">Change password</span>
+                    </a></td>
+                    <td><a href ng-click="vm.deleteUser(user)">
+                        <span class="btn btn-sm btn-primary">Delete</span>
+                    </a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
