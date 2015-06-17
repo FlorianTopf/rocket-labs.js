@@ -33,3 +33,12 @@ Please make sure you have installed following vgrant plugins:
   * http://definitelytyped.org/tsd/
 * http://gruntjs.com
 * https://nodejs.org/
+
+### AngularJS ###
+
+* https://angularjs.org/
+* https://thinkster.io/a-better-way-to-learn-angularjs/
+* https://egghead.io/technologies/angularjs
+* https://blog.angularjs.org/2014/02/an-angularjs-style-guide-and-best.html
+* https://github.com/angular-ui/ui-router
+* https://docs.angularjs.org/api/ngResource/service/$resource
