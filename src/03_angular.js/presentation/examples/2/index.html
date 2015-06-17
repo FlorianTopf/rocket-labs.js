@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div ng-app="SellerCenter_Product">
+        <div ng-controller="MainCtrl as main">
+            <input type="text" ng-model="main.name">
+
+            <h1 ng-show="main.name">Hello {{ main.name }}</h1>
+            <div ng-controller="ChildCtrl as child">
+                {{main.name}} > {{child.name}}
+            </div>
+        </div>
+
+        <hr/>
+
+        <div ng-controller="SecondCtrl">
+            <input type="text" ng-model="name">
+
+            <h1 ng-show="name">Hello {{ name }}</h1>
+            <div ng-controller="SecondChildCtrl">
+                {{name}} > {{name}}
+            </div>
+        </div>
+    </div>
+
+    <script src="./../../node_modules/angular/angular.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

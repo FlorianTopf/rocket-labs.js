@@ -1,0 +1,26 @@
+<img ng-src="{{profile.photo}}"/>
+<h1>{{profile.name}}</h1>
+<p>
+    Date of birth: {{profile.birth | date}}
+</p>
+<p>
+    Rating: {{profile.rating}} <a ng-click="addVote()" href="#">Add Vote</a>
+</p>
+<h2>Favorite movies</h2>
+<button ng-click="order = !order">sort</button>
+<ul>
+    <li ng-repeat="movie in profile.movies | orderBy:movie:order">
+
+        {{$index+1}}: {{movie}}
+
+        <span ng-show="$last">:)</span>
+
+        <div ng-if="$last">
+            <button ng-click="addingMovie = true">Add new movie</button>
+            <div ng-show="addingMovie">
+                <input type="text" ng-model="newMovie"/>
+                <button ng-click="addMovie(newMovie)">Add</button>
+            </div>
+        </div>
+    </li>
+</ul>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        body {font-size: 18px;padding-bottom: 200px}
+        profile {float: left; border: 1px solid #ccc; padding: 20px; margin: 20px}
+        label {display: block}
+        input {padding: 3px 7px;}
+    </style>
+</head>
+<body>
+    <div ng-app="SellerCenter_Product">
+        <div ng-controller="MainCtrl as main">
+
+            <div ng-repeat="profile in main.profiles | orderBy:profile.name">
+
+                <profile data-values="profile"></profile>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="./../../node_modules/angular/angular.js"></script>
+    <script src="script.js"></script>
+    <script src="directives/profile.js"></script>
+</body>
+</html>
