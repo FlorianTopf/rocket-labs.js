@@ -18,5 +18,3 @@ The views are already in the public folder unter ./scripts/views.
 The second command also starts a file-watcher
 * to run the application execute `node server.js` or `nodemon server.js` 
 if you want to have a watcher for the server files.
-
-
