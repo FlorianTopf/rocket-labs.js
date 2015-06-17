@@ -15,6 +15,6 @@ The views are already in the public folder unter ./scripts/views.
 ## Usage ##
 
 * to build run `grunt build` for all files or `grunt dist` for only the project files.
-The second command also starts a file-watcher
+The second command also starts a file-watcher.
 * to run the application execute `node server.js` or `nodemon server.js` 
 if you want to have a watcher for the server files.
