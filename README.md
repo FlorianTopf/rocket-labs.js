@@ -37,6 +37,7 @@ Please make sure you have installed following vgrant plugins:
 ### AngularJS ###
 
 * https://angularjs.org/
+* http://ngmodules.org/
 * https://thinkster.io/a-better-way-to-learn-angularjs/
 * https://egghead.io/technologies/angularjs
 * https://blog.angularjs.org/2014/02/an-angularjs-style-guide-and-best.html
